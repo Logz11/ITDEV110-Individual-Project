@@ -42,22 +42,16 @@ public class View {
         return userCombatStyleChoice;
     }
     
-    public int getUserAffinity(int userCombatStyleChoice, String userAffinityChoice){
+    public int getUserAffinity(int userCombatStyleChoice){
         int userAffinity = 2, userConfirmationNum = 1;
         String userConfirmationInput;
-        do {
+        
             if (userCombatStyleChoice == 1) {
                 String str = JOptionPane.showInputDialog("Hero, with which form of Magic do you fight?"
                         + "\n(0) for Fire Magic"
                         + "\n(1) for Ice Magic"
                         + "\n(2) for Lightning Magic");
                 userAffinity = Integer.parseInt(str);
-                userConfirmationInput = JOptionPane.showInputDialog("You have selected " + userAffinityChoice
-                        +"\nIs this correct?"
-                        +"\n Enter (0) for No"
-                        +"\n Enter (1) for Yes");
-                userConfirmationNum = Integer.parseInt(userConfirmationInput);
-                
             }
 
             else if (userCombatStyleChoice == 0) {
@@ -78,7 +72,7 @@ public class View {
 
         return userAffinity;
     }
-    
+
     public void displayASCIIArt(String ASCIIArt){
         JOptionPane.showMessageDialog(null, ASCIIArt);
     }
