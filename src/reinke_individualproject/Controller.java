@@ -13,6 +13,8 @@ public class Controller {
         view.titleScreen();
             
         do{
+            //RESETS VARIABLES TO BASE VALUES FOR MULTIPLE PLAY THROUGHS
+            model.resetGameData();
             model.generateEnvironment();
             model.generateIntroText();
             view.introduction(model.getRandomIntroText(), model.getEnvironment(), model.getEnvironmentDescription());
@@ -52,6 +54,8 @@ public class Controller {
             model.scoreModifierCalc();
             model.scoreCalc();
             view.displayUserScore(model.getUserScore());
+            model.sortHighScores();
+            view.displayHighScores(model.getHighScores());
             /*view.displayHighScores();*/
             userConfirmationNumForGame = view.userPlayAgain();
         } while (userConfirmationNumForGame == 1);
