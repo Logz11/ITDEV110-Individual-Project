@@ -72,17 +72,19 @@ public class View {
         return userConfirmationNum;
     }
 
-    public void displayASCIIArt(String ASCIIArt){
+    //REPLACED WITH GENERATEART.JAVA
+    /*public void displayASCIIArt(String ASCIIArt){
         JOptionPane.showMessageDialog(null, ASCIIArt);
-    }
+    }*/
     
-    public void displayUserTitleAndQuarry(String creatureType, String userName, String playerCharacterTitle, String userAffinityChoice, String environment, String creatureDescription){
-        JOptionPane.showMessageDialog(null, "You are "+userName + playerCharacterTitle +", master of "+userAffinityChoice+"."+
+    public void displayUserTitleAndQuarry(String creatureType, String userName, String playerCharacterTitle, String userAffinityChoice, 
+            String environment, String creatureDescription){
+        JOptionPane.showMessageDialog(null, "You are "+userName +", "+ playerCharacterTitle +", master of "+userAffinityChoice+"."+
                 "\nYou have come to "+environment+" to hunt a "+creatureType + creatureDescription);
     }
 
-    public void beginCombat(String creatureType){//PLACEHOLDER NEEDS WORK
-        JOptionPane.showMessageDialog(null, "Leelde leedle leedle lee Oh no, the "+creatureType+" confronts you!");
+    public void beginCombat(String creatureType){
+        JOptionPane.showMessageDialog(null, "While you were lost in thought, the "+creatureType+" rushes to confront you!");
     }
     
     public int getUserAttackOrDefend(){
@@ -104,9 +106,10 @@ public class View {
     public void combatOutcomeMessage(double monsterHealth, double playerHealth, int turnCount){
         //PLAYER VICTORY
         if (playerHealth > 0.00){
-            JOptionPane.showMessageDialog(null, "congration you're winner."
+            JOptionPane.showMessageDialog(null, "You are victorious!"
                     + "\nYou defeated the monster in "+turnCount+" turns"
-                    + "\nwith "+playerHealth+" lifepoints remaining.");
+                    + "\nwith "+playerHealth+" lifepoints remaining."
+                    + "\nWell done, champion!");
         }
         //PLAYER DEFEAT
         else {
@@ -121,9 +124,25 @@ public class View {
         JOptionPane.showMessageDialog(null, "Your score for this hunt is "+userScore);
     }
     
-    public void displayHighScores(){
-        
+    
+    public void displayHighScores(String highScoresConcat){
+        JOptionPane.showMessageDialog(null, "~ ~ ~ The Book of Heroes ~ ~ ~\n\n" + highScoresConcat);
     }
+    /*public void displayHighScores(){
+        int row = 0;
+        String hero[][];
+        String alignFormatOne = "| %13d |%6d |%n";
+        String titleOne = String.format("+------------------------+%n");
+        String titleTwo = String.format("|   The Book of Heroes   |%n");
+        String titleThree = String.format("+------------------+-----+%n");
+        for (int iR = 0; iR < 10; iR++) {
+            int column = 0;
+            String.format(alignFormatOne, hero[row][column++], 
+                hero[row][column]);
+            row++;
+        }
+        String bottom = String.format("+------------------+-----+%n");
+    }*/
     
     public int userPlayAgain(){
         String str = JOptionPane.showInputDialog("Would you like to embark on another hunt?"
@@ -134,8 +153,8 @@ public class View {
     }
     
     public void exitMessage(String userName, String playerCharacterTitle){
-        JOptionPane.showMessageDialog(null,"So ends the song of " + userName + playerCharacterTitle
-            +"\nAnd you close the Book of Heroes.");
+        JOptionPane.showMessageDialog(null,"So ends the song of " + userName +", "+ playerCharacterTitle+"."
+            +"\nYou close the Book of Heroes.");
     }
 
 }
